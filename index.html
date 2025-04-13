@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>Bookshelf App</title>
+
+    <!-- Impor script kamu di sini -->
+    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+    
+  </head>
+
+  <body>
+    <header class="head_bar">
+      <h1 class="head_bar__title">Bookshelf App</h1>
+    </header>
+
+    <main>
+      
+      <section class="input_section">
+        <h2>Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div class="input">
+            <label for="bookFormTitle">Judul</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+          </div>
+          <div class="input">
+            <label for="bookFormAuthor">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+          </div>
+          <div class="input">
+            <label for="bookFormYear">Tahun</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
+          </div>
+          <div class="input_inline">
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input
+              id="bookFormIsComplete"
+              type="checkbox"
+              data-testid="bookFormIsCompleteCheckbox"
+            />
+          </div>
+          <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+          </button>
+        </form>
+      </section>
+
+      <section class="search_section">
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm">
+          <label for="searchBookTitle">Judul</label>
+          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+          <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
+            Cari
+          </button>
+        </form>
+      </section>
+
+      <section class="book_shelf">
+        <h2>Belum selesai dibaca</h2>
+        <div 
+          id="incompleteBookList" 
+          class="book_list" 
+          data-testid="incompleteBookList">
+        </div>
+      </section>
+
+      <section class="book_shelf">
+        <h2>Selesai dibaca</h2>
+
+        <div 
+          id="completeBookList" 
+          data-testid="completeBookList"
+          class="book_list">
+        </div>
+      </section>
+
+       <!-- Modal Edit Buku -->
+       <div id="editBookModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Edit Buku</h2>
+          <form id="editBookForm">
+            <input type="hidden" id="editBookId" />
+            <div class="input">
+              <label for="editBookTitle">Judul</label>
+              <input id="editBookTitle" type="text" required />
+            </div>
+            <div class="input">
+              <label for="editBookAuthor">Penulis</label>
+              <input id="editBookAuthor" type="text" required />
+            </div>
+            <div class="input">
+              <label for="editBookYear">Tahun</label>
+              <input id="editBookYear" type="number" required />
+            </div>
+            <div class="input_inline">
+              <label for="editBookIsComplete">Selesai dibaca</label>
+              <input id="editBookIsComplete" type="checkbox" />
+            </div>
+            <button type="submit">Simpan Perubahan</button>
+            <button type="button" id="cancelEdit">Batal</button>
+          </form>
+        </div>
+      </div>
+      
+    </main>
+  </body>
+  <script defer src="main.js"></script>
+</html>
